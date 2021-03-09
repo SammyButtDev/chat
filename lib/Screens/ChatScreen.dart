@@ -275,8 +275,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       width: 5,
                     ),
                     SizedBox(
-                      height: 60,
-                      width: 60,
+                      height: 60.0,
+                      width: 60.0,
                       child: PlayButton(
                         initialIsPlaying: true,
                         playIcon: Icon(
