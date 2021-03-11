@@ -12,7 +12,7 @@ class _SMMsState extends State<SMMs> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
+      appBar: AppBar(elevation: 0,
         title: Text('SMS and MMS'),
       ),
       body: SingleChildScrollView(

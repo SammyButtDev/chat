@@ -24,26 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => CallLog())),
-            backgroundColor: Theme.of(context).buttonColor,
-            mini: true,
-            heroTag: "abc",
-            child: Icon(
-              Icons.menu_book,
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          FloatingActionButton(
             heroTag: null,
             onPressed: () {},
-            backgroundColor: Theme.of(context).buttonColor,
+            backgroundColor: Colors.white,
             child: Icon(
-              Icons.message_rounded,
-              color: Theme.of(context).primaryColor,
+              CupertinoIcons.pen,size: 32,
+              color: Colors.grey,
             ),
           ),
         ],

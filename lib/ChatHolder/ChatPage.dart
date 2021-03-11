@@ -66,12 +66,12 @@ class _Chat_pageState extends State<Chat_page> {
                         ),
                         chat.unread
                             ? Container(
-                          height: 28,
-                          width: 28,
+                          height: 20,
+                          width: 20,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: chat.unread
-                                ? Colors.green.shade300
+                                ? Color.fromRGBO(52, 199, 89, 1)
                                 : Colors.transparent,
                           ),
                           child: Center(
@@ -88,7 +88,7 @@ class _Chat_pageState extends State<Chat_page> {
                 ),
 
                 Divider(
-                  color: Theme.of(context).dividerColor,
+                  color: Colors.grey.shade100,
                   thickness: 1,
                 ),
               ],

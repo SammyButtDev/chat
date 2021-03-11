@@ -1,3 +1,4 @@
+import 'package:blah/Settings/Privacy.dart';
 import 'package:flutter/material.dart';
 class SettingChat extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _SettingChatState extends State<SettingChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(elevation: 0,
         title: Text("Chats",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
         backgroundColor: Theme.of(context).primaryColor,
       ),
@@ -22,7 +23,9 @@ class _SettingChatState extends State<SettingChat> {
           child: Column(
             children: [
               ListTile(title:Text("Messages",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontWeight: FontWeight.bold,fontSize: 18)),),
-              InkWell(onTap: (){},
+              InkWell(onTap: (){
+                CustomDialog(context, "Message font size","Small","Normal","large");
+              },
                 splashColor: Colors.blue,
                 child: ListTile(
                   title: Text(

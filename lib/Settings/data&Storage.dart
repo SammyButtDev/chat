@@ -1,3 +1,4 @@
+import 'package:blah/Settings/Privacy.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class _DataNStorageState extends State<DataNStorage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Text("Data and Storage",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+        elevation: 0,
       ),
       backgroundColor:Theme.of(context).primaryColor,
       body: SingleChildScrollView(child: Container(
@@ -31,7 +33,9 @@ class _DataNStorageState extends State<DataNStorage> {
             ),
             InkWell(
               splashColor: Colors.blue,
-              onTap: (){},
+              onTap: (){
+                CustomDialog(context, "When using mobile data", "Images", "Audio", "Video");
+              },
               child: ListTile(
                 title: Text("When using mobile data",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontSize: 18,fontWeight: FontWeight.bold),),
                 subtitle: Text("Images,Audio",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
@@ -39,7 +43,10 @@ class _DataNStorageState extends State<DataNStorage> {
             ),
             InkWell(
               splashColor: Colors.blue,
-              onTap: (){},
+              onTap: (){
+                CustomDialog(context, "When roaming", "Images", "Audio", "Video");
+
+              },
               child: ListTile(
                 title: Text("When using Wi-Fi",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontSize: 18,fontWeight: FontWeight.bold),),
                 subtitle: Text("Images,Audio,Video,Documents",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
@@ -47,7 +54,10 @@ class _DataNStorageState extends State<DataNStorage> {
             ),
             InkWell(
               splashColor: Colors.blue,
-              onTap: (){},
+              onTap: (){
+                CustomDialog(context, "When roaming ", "Images", "Audio", "Video");
+
+              },
               child: ListTile(
                 title: Text("When roaming",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontSize: 18,fontWeight: FontWeight.bold),),
                 subtitle: Text("None",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
@@ -58,7 +68,8 @@ class _DataNStorageState extends State<DataNStorage> {
             ),
             InkWell(
               splashColor: Colors.blue,
-              onTap: (){},
+              onTap: (){                CustomDialog(context, "Use less data for calls", "Never", "cellular only", "Wifi and cellular");
+              },
               child: ListTile(
                 title: Text("Use less data for calls",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontSize: 18,fontWeight: FontWeight.bold),),
                 subtitle: Text("Never",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),

@@ -162,7 +162,8 @@ List<Message> messages = [
 ];
 
 Widget CustomContainer(BuildContext context, heading1, detail1, ontap) {
-  return GestureDetector(
+  return InkWell(
+    splashColor: Colors.blue,
     onTap: ontap,
     child: Container(
       height: 65,

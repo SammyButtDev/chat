@@ -13,6 +13,7 @@ class _PrivacyState extends State<Privacy> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(
               context, MaterialPageRoute(builder: (_) => Settings())),
@@ -68,7 +69,7 @@ class _PrivacyState extends State<Privacy> {
                 ),
               ),
               CustomContainer(context, "Last seen", "My contacts", () {
-                CustomDialog(context);
+                CustomDialog(context,"Last Seen","Everyone","Only Contacts","Only me");
               }),
               Padding(
                 padding: const EdgeInsets.only(left: 80.0),
@@ -77,7 +78,9 @@ class _PrivacyState extends State<Privacy> {
                   thickness: 1,
                 ),
               ),
-              CustomContainer(context, "Profile Photo", "My contacts", () {}),
+              CustomContainer(context, "Profile Photo", "My contacts", () {
+                CustomDialog(context,"Profile Photo","Everyone","Only Contacts","Only me");
+              }),
               Padding(
                 padding: const EdgeInsets.only(left: 80.0),
                 child: Divider(
@@ -85,7 +88,9 @@ class _PrivacyState extends State<Privacy> {
                   thickness: 1,
                 ),
               ),
-              CustomContainer(context, "About", "My contacts", () {}),
+              CustomContainer(context, "About", "My contacts", () {
+                CustomDialog(context,"About","Everyone","Only Contacts","Only me");
+              }),
               Padding(
                 padding: const EdgeInsets.only(left: 80.0),
                 child: Divider(
@@ -93,7 +98,9 @@ class _PrivacyState extends State<Privacy> {
                   thickness: 1,
                 ),
               ),
-              CustomContainer(context, "Status", "My contacts", () {}),
+              CustomContainer(context, "Status", "My contacts", () {
+                CustomDialog(context,"Status","Everyone","Only Contacts","Only me");
+              }),
               Padding(
                 padding: const EdgeInsets.only(left: 80.0),
                 child: Divider(
@@ -101,7 +108,9 @@ class _PrivacyState extends State<Privacy> {
                   thickness: 1,
                 ),
               ),
-              CustomContainer(context, "Screen lock", "Off", () {}),
+              CustomContainer(context, "Screen lock", "Off", () {
+                CustomDialog(context,"Screen lock","On","Off","Never");
+              }),
               Divider(
                 color: Theme.of(context).dividerColor,
                 thickness: 1,
@@ -115,7 +124,7 @@ class _PrivacyState extends State<Privacy> {
 }
 enum SingingCharacter { Everyone, Contacts,Me,}
 
-Future<void> CustomDialog(context,) {
+Future<void> CustomDialog(context,title,tab1,tab2,tab3) {
   SingingCharacter _character = SingingCharacter.Everyone;
   return showDialog(
       context: context,
@@ -124,7 +133,7 @@ Future<void> CustomDialog(context,) {
         return AlertDialog(
           backgroundColor: Theme.of(context).primaryColor,
           title: Text(
-            "Last Seen",
+            title,
             style:
                 TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
           ),
@@ -132,21 +141,21 @@ Future<void> CustomDialog(context,) {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text("Everyone", style:
+                title: Text(tab1, style:
                 TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
                 leading: Radio(value: SingingCharacter.Everyone, groupValue:  _character, onChanged: (SingingCharacter value){
                   return _character = value;
                 }),
               ),
               ListTile(
-                title: Text("Only Contacts", style:
+                title: Text(tab2, style:
                 TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
                 leading: Radio(value: SingingCharacter.Contacts, groupValue:  _character, onChanged: (SingingCharacter value){
                   return _character = value;
                 }),
               ),
               ListTile(
-                title: Text("Only me", style:
+                title: Text(tab3, style:
                 TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
                 leading: Radio(value: SingingCharacter.Me, groupValue:  _character, onChanged: (SingingCharacter value){
                   return _character = value;

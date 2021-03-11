@@ -1,6 +1,7 @@
 import 'package:blah/Providers/ThemeProvider.dart';
 import 'package:blah/Screens/HomeScreen.dart';
 import 'package:blah/Settings/Chats.dart';
+import 'package:blah/Settings/Help.dart';
 import 'package:blah/Settings/Privacy.dart';
 import 'package:blah/Settings/data&Storage.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     final themeChange = Provider.of<ThemeProvider>(context);
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         leading: IconButton(
@@ -55,7 +57,7 @@ class _SettingsState extends State<Settings> {
                         InkWell(
                             onTap: () {},
                             child: CircleAvatar(
-                              radius: 40,
+                              radius: 32,
                               backgroundImage: AssetImage('images/greg.jpg'),
                             )),
                         Padding(
@@ -191,8 +193,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   InkWell(
                     splashColor: Colors.blue,
-                    onTap: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => SettingChat())),
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => SettingChat())),
                     child: ListTile(
                       focusColor: Colors.blue,
                       leading: Icon(Icons.image_outlined,
@@ -207,8 +209,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   InkWell(
                     splashColor: Colors.blue,
-                    onTap:  () => Navigator.push(
-    context, MaterialPageRoute(builder: (_) => DataNStorage())),
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => DataNStorage())),
                     child: ListTile(
                       leading: Icon(Icons.inbox,
                           color: Theme.of(context).buttonColor),
@@ -222,7 +224,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   InkWell(
                     splashColor: Colors.blue,
-                    onTap: () {},
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => Help())),
                     child: ListTile(
                       leading: Icon(Icons.help_outline,
                           color: Theme.of(context).buttonColor),
@@ -245,7 +248,7 @@ class _SettingsState extends State<Settings> {
                   Text(
                     "made by Arminodes",
                     style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1.color,
+                        color: Colors.grey.shade400,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   )
