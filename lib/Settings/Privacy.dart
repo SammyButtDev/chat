@@ -1,6 +1,7 @@
-import 'package:blah/Screens/SettingScreen.dart';
 import 'package:blah/constant.dart';
 import 'package:flutter/material.dart';
+
+import 'SettingScreen.dart';
 
 class Privacy extends StatefulWidget {
   @override

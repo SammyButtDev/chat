@@ -1,7 +1,6 @@
 import 'package:blah/ChatHolder/Chat_holder.dart';
 import 'package:blah/Screens/CallLogScreen.dart';
-import 'package:blah/Screens/SettingScreen.dart';
-import 'package:blah/Settings/Privacy.dart';
+import 'package:blah/Settings/SettingScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

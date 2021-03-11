@@ -1,6 +1,35 @@
-import 'package:flutter/material.dart';
 
-/*Padding(
+/*Container(
+width: MediaQuery.of(context).size.width,
+height: 100,
+color: Colors.transparent,
+child: Row(
+children: [
+Icon(Icons.image,
+color: Theme.of(context).buttonColor),
+SizedBox(
+width: 30,
+),
+Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+Text(
+'Chats',
+style: TextStyle(
+color: Theme.of(context)
+.textTheme
+    .bodyText1
+    .color,
+fontWeight: FontWeight.bold),
+),
+],
+),
+],
+),
+),
+
+Padding(
 padding: const EdgeInsets.only(left: 25.0),
 child: Container(
 height: 200,
