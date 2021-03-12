@@ -24,12 +24,23 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            heroTag: null,
+            splashColor: CupertinoColors.activeBlue,
+            heroTag: "camera",
             onPressed: () {},
             backgroundColor: Colors.white,
             child: Icon(
+              Icons.camera_alt,
+              color: Colors.grey.shade700,
+            ),
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+          FloatingActionButton(
+            heroTag: "text",
+            onPressed: () {},
+            backgroundColor: CupertinoColors.activeBlue,
+            child: Icon(
               CupertinoIcons.pen,size: 32,
-              color: Colors.grey,
+              color: Colors.white,
             ),
           ),
         ],
@@ -115,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.grey, fontWeight: FontWeight.w700),
                 ),
               ),
-              const PopupMenuItem<HomeMENU>(
+              PopupMenuItem<HomeMENU>(
                 value: HomeMENU.Delete,
                 child: Text(
                   'Delete Chat',
@@ -198,7 +209,7 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      autofocus: true,
+      autofocus: false,
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: 'Search for...',

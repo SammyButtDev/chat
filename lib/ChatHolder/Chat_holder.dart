@@ -24,48 +24,6 @@ class _ChatHolderState extends State<ChatHolder> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Container(
-                height: 120,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                ),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: status.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => Status_Screen(),
-                              ),
-                            ),
-                            child: CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Colors.grey.shade300,
-                              backgroundImage: AssetImage(status[index].imageUrl,)
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            status[index].name,
-                            style: TextStyle(
-                                color: Colors.grey.shade500,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
               Chat_page(),
             ],
           ),

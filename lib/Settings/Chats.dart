@@ -93,7 +93,8 @@ class _SettingChatState extends State<SettingChat> {
                     },
                   ),
                 ),
-              ),  InkWell(onTap: (){},
+              ),
+              InkWell(onTap: (){},
                 splashColor: Colors.blue,
                 child: ListTile(
                   title: Text(
@@ -111,6 +112,10 @@ class _SettingChatState extends State<SettingChat> {
                     },
                   ),
                 ),
+              ),
+              Divider(
+                color: Colors.grey.shade800,
+                thickness: 10,
               ),
             ],
           ),

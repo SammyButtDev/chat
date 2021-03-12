@@ -3,7 +3,9 @@ import 'package:blah/Screens/HomeScreen.dart';
 import 'package:blah/Settings/Chats.dart';
 import 'package:blah/Settings/Help.dart';
 import 'package:blah/Settings/Privacy.dart';
+import 'package:blah/Settings/Profile.dart';
 import 'package:blah/Settings/data&Storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blah/constant.dart';
 import 'package:provider/provider.dart';
@@ -41,57 +43,38 @@ class _SettingsState extends State<Settings> {
           style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
         ),
       ),
-      body: GestureDetector(
+      body: SingleChildScrollView(
         child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
-                child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Row(
-                      children: [
-                        InkWell(
-                            onTap: () {},
-                            child: CircleAvatar(
-                              radius: 32,
-                              backgroundImage: AssetImage('images/greg.jpg'),
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "User",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "+00 000 0000000",
-                                style: TextStyle(
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1
-                                        .color),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+              InkWell(
+                onTap: () => Navigator.push(
+            context, MaterialPageRoute(builder: (_) => Profile())),
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "User",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .color,
                     ),
                   ),
+                  subtitle:Text(
+                    "+00 000 0000000",
+                    style: TextStyle(
+                        color: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .color),
+                  ),
+                  leading:CircleAvatar(
+                    radius: 32,
+                    backgroundImage: AssetImage('images/greg.jpg'),
+                  ) ,
                 ),
               ),
               Column(

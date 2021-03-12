@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class notification extends StatefulWidget {
@@ -12,6 +13,8 @@ class _notificationState extends State<notification> {
   bool Callvibrate = false;
   bool MNotif = false;
   bool CallNotif = false;
+  bool EventNotif = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +24,7 @@ class _notificationState extends State<notification> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(title:Text("Messages",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontWeight: FontWeight.bold,fontSize: 18)),),
+            ListTile(title:Text("Messages",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
             SizedBox(height: 8,),
             InkWell(onTap: (){},
               splashColor: Colors.blue,
@@ -97,7 +100,8 @@ class _notificationState extends State<notification> {
                 ),
               ),
             ),
-            ListTile(title:Text("Calls",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontWeight: FontWeight.bold,fontSize: 18)),),
+            Divider(color: Colors.grey.shade100,thickness: 10,),
+            ListTile(title:Text("Calls",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
             InkWell(onTap: (){},
               splashColor: Colors.blue,
               child: ListTile(
@@ -142,14 +146,34 @@ class _notificationState extends State<notification> {
                   style: TextStyle(
                       color: Theme.of(context).textTheme.bodyText1.color),
                 ),
-                trailing:Text("Default",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+                trailing:Text("Default",style: TextStyle(color: CupertinoColors.activeBlue),),
               ),
             ),
 
             Divider(
-              color: Theme.of(context).dividerColor,
-              thickness: 1,
+              color: Colors.grey.shade100,
+              thickness: 10,
             ),
+            ListTile(title:Text("Events",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
+            InkWell(onTap: (){},
+              splashColor: Colors.blue,
+              child: ListTile(
+                title: Text(
+                  "Contact joined Nodes",
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                trailing: Switch(
+                  value: EventNotif,
+                  onChanged: (value) {
+                    setState(() {
+                      EventNotif = value;
+                    });
+                  },
+                ),
+              ),
+            ),
+
           ],
         ),
       ),

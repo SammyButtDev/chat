@@ -1,5 +1,6 @@
 import 'package:blah/Screens/ChatScreen.dart';
 import 'package:blah/constant.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -55,42 +56,20 @@ class _Chat_pageState extends State<Chat_page> {
                     subtitle: Text(chats[index].text,style: TextStyle(
                       color: Colors.grey.shade700,
                       fontSize: 14,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: chat.unread?FontWeight.bold:FontWeight.normal,
                     ),),
                     trailing: Column(
                       children: [
                         Text(chat.time,style: TextStyle(
                           color: Theme.of(context).textTheme.bodyText1.color,
+                          fontWeight:  chat.unread?FontWeight.bold:FontWeight.normal,
                         ),),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        chat.unread
-                            ? Container(
-                          height: 20,
-                          width: 20,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: chat.unread
-                                ? Color.fromRGBO(52, 199, 89, 1)
-                                : Colors.transparent,
-                          ),
-                          child: Center(
-                            child: Text('1',style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),),
-                          ),
-                        )
-                            : SizedBox.shrink(),
                       ],
                     ),
                   ),
                 ),
 
-                Divider(
-                  color: Colors.grey.shade100,
-                  thickness: 1,
-                ),
               ],
             );
           },

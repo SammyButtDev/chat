@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SMMs extends StatefulWidget {
@@ -12,7 +13,8 @@ class _SMMsState extends State<SMMs> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(elevation: 0,
+      appBar: AppBar(
+        elevation: 0,
         title: Text('SMS and MMS'),
       ),
       body: SingleChildScrollView(
@@ -20,7 +22,23 @@ class _SMMsState extends State<SMMs> {
         child: Column(
           children: [
             InkWell(
-              splashColor: Colors.blue,
+              splashColor: CupertinoColors.activeBlue,
+              onTap: () {},
+              child: ListTile(
+                title: Text(
+                  "SMS Disabled",
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                subtitle: Text(
+                  "Touch to make Nodes your default SMS app",
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+              ),
+            ),
+            InkWell(
+              splashColor: CupertinoColors.activeBlue,
               onTap: () {},
               child: ListTile(
                 title: Text(
@@ -36,15 +54,15 @@ class _SMMsState extends State<SMMs> {
                 trailing: Switch(
                   value: Delivery,
                   onChanged: (value) {
-                   setState(() {
-                     Delivery=value;
-                   });
+                    setState(() {
+                      Delivery = value;
+                    });
                   },
                 ),
               ),
             ),
             InkWell(
-              splashColor: Colors.blue,
+              splashColor: CupertinoColors.activeBlue,
               onTap: () {},
               child: ListTile(
                 title: Text(
@@ -60,10 +78,9 @@ class _SMMsState extends State<SMMs> {
                 trailing: Switch(
                   value: mode,
                   onChanged: (value) {
-                   setState(() {
-
-                     mode= value;
-                   });
+                    setState(() {
+                      mode = value;
+                    });
                   },
                 ),
               ),
