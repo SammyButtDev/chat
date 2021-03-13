@@ -86,7 +86,7 @@ class _SettingsState extends State<Settings> {
                     splashColor: Colors.blue,
                     child: ListTile(
                       leading: Icon(
-                        Icons.chat_bubble_outline,
+                        CupertinoIcons.text_bubble_fill,
                         color: Theme.of(context).buttonColor,
                       ),
                       title: Text(

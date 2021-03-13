@@ -1,4 +1,5 @@
 import 'package:blah/constant.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'SettingScreen.dart';
@@ -9,6 +10,9 @@ class Privacy extends StatefulWidget {
 }
 
 class _PrivacyState extends State<Privacy> {
+  bool PScreenLock = false;
+  bool PScreensecurity = false;
+  bool PScreenkeyboard = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,102 +33,131 @@ class _PrivacyState extends State<Privacy> {
         titleSpacing: 0.5,
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: Column(
-        children: [
-          Column(
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
             children: [
-              Container(
-                height: 80,
-                width: MediaQuery.of(context).size.width,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Who can see my personal info",
-                        style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1.color,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "if you don't share your last seen, you wont be able to see other people's \nLast seen",
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color,
-                        ),
-                      ),
-                    ],
+              ListTile(
+                title: Text(
+                  "App acess",
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
+              ),
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Screen lock",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Lock Nodes access with Android screen lock on fingerprint",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PScreensecurity,
+                    onChanged: (value) {
+                      setState(() {
+                        PScreensecurity = value;
+                      });
+                    },
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Divider(
-                  color: Theme.of(context).dividerColor,
-                  thickness: 1,
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Screen lock inactivity timeout",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "None",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
                 ),
               ),
-              CustomContainer(context, "Last seen", "My contacts", () {
-                CustomDialog(context,"Last Seen","Everyone","Only Contacts","Only me");
-              }),
-              Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Divider(
-                  color: Theme.of(context).dividerColor,
-                  thickness: 1,
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Screen security",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Block screenshots in the recents list and inside the app",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PScreenLock,
+                    onChanged: (value) {
+                      setState(() {
+                        PScreenLock = value;
+                      });
+                    },
+                  ),
                 ),
               ),
-              CustomContainer(context, "Profile Photo", "My contacts", () {
-                CustomDialog(context,"Profile Photo","Everyone","Only Contacts","Only me");
-              }),
-              Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Divider(
-                  color: Theme.of(context).dividerColor,
-                  thickness: 1,
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Sincognito keyboard",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Request keyboard to disable personalized learning.This setting is not a guarantee,and your keyboard may ignore it.",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PScreenkeyboard,
+                    onChanged: (value) {
+                      setState(() {
+                        PScreenkeyboard = value;
+                      });
+                    },
+                  ),
                 ),
               ),
-              CustomContainer(context, "About", "My contacts", () {
-                CustomDialog(context,"About","Everyone","Only Contacts","Only me");
-              }),
-              Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Divider(
-                  color: Theme.of(context).dividerColor,
-                  thickness: 1,
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Learn more",
+                    style: TextStyle(
+                        color: CupertinoColors.activeBlue,
+                  ),
                 ),
+                  leading: Icon(Icons.keyboard),
               ),
-              CustomContainer(context, "Status", "My contacts", () {
-                CustomDialog(context,"Status","Everyone","Only Contacts","Only me");
-              }),
-              Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Divider(
-                  color: Theme.of(context).dividerColor,
-                  thickness: 1,
-                ),
               ),
-              CustomContainer(context, "Screen lock", "Off", () {
-                CustomDialog(context,"Screen lock","On","Off","Never");
-              }),
               Divider(
-                color: Theme.of(context).dividerColor,
-                thickness: 1,
+                color: Colors.grey.shade100,
+                thickness: 10,
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
 }
-enum SingingCharacter { Everyone, Contacts,Me,}
 
-Future<void> CustomDialog(context,title,tab1,tab2,tab3) {
+enum SingingCharacter {
+  Everyone,
+  Contacts,
+  Me,
+}
+
+Future<void> CustomDialog(context, title, tab1, tab2, tab3) {
   SingingCharacter _character = SingingCharacter.Everyone;
   return showDialog(
       context: context,
@@ -141,25 +174,43 @@ Future<void> CustomDialog(context,title,tab1,tab2,tab3) {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text(tab1, style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
-                leading: Radio(value: SingingCharacter.Everyone, groupValue:  _character, onChanged: (SingingCharacter value){
-                  return _character = value;
-                }),
+                title: Text(
+                  tab1,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Everyone,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
               ),
               ListTile(
-                title: Text(tab2, style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
-                leading: Radio(value: SingingCharacter.Contacts, groupValue:  _character, onChanged: (SingingCharacter value){
-                  return _character = value;
-                }),
+                title: Text(
+                  tab2,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Contacts,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
               ),
               ListTile(
-                title: Text(tab3, style:
-                TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
-                leading: Radio(value: SingingCharacter.Me, groupValue:  _character, onChanged: (SingingCharacter value){
-                  return _character = value;
-                }),
+                title: Text(
+                  tab3,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Me,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
               ),
             ],
           ),

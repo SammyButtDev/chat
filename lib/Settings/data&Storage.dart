@@ -28,8 +28,12 @@ class _DataNStorageState extends State<DataNStorage> {
                 subtitle: Text("200.9 kB",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
               ),
             ),
+            Divider(
+              color: Colors.grey.shade100,
+              thickness: 10,
+            ),
             ListTile(
-              title: Text("Media auto-download",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontSize: 18,fontWeight: FontWeight.bold),),
+              title: Text("Media auto-download",style: TextStyle(color: CupertinoColors.activeBlue),),
             ),
             InkWell(
               splashColor: Colors.blue,
@@ -63,8 +67,12 @@ class _DataNStorageState extends State<DataNStorage> {
                 subtitle: Text("None",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
               ),
             ),
+            Divider(
+              color: Colors.grey.shade100,
+              thickness: 10,
+            ),
             ListTile(
-              title: Text("Calls",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontWeight: FontWeight.bold),),
+              title: Text("Calls",style: TextStyle(color: CupertinoColors.activeBlue,),),
             ),
             InkWell(
               splashColor: Colors.blue,

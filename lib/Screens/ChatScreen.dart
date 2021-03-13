@@ -32,7 +32,7 @@ class _ChatScreenState extends State<ChatScreen> {
           child: DecoratedBox(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: Theme.of(context).accentColor,
+                color: isMe ? widget.user.color:Colors.grey,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -84,7 +84,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.user.name),
-        centerTitle: true,
+        backgroundColor: widget.user.color,
         actions: [
           PopupMenuButton(
             color: Theme.of(context).primaryColor,
@@ -169,13 +169,13 @@ class _ChatScreenState extends State<ChatScreen> {
                               : CrossAxisAlignment.end,
                           children: [
                             _Messages(message, isMe),
-                            Padding(
+                           /* Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 height: 50,
                                 width: 100,
                                 decoration: BoxDecoration(
-                                    color: Theme.of(context).accentColor,
+                                    color: isMe ? widget.user.color:Colors.grey,
                                     borderRadius: BorderRadius.circular(100)),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -216,7 +216,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                   ],
                                 ),
                               ),
-                            ),
+                            ),*/
                           ],
                         ); //_Messages(message, isMe);
                       }),
@@ -238,7 +238,8 @@ class _ChatScreenState extends State<ChatScreen> {
                         color: Colors.purple.shade300,
                         size: 29,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                      },
                     ),
                     RotationTransition(
                       turns: AlwaysStoppedAnimation(-45 / 360),
