@@ -114,7 +114,7 @@ class _SettingChatState extends State<SettingChat> {
                 ),
               ),
               Divider(
-                color: Colors.grey.shade800,
+                color: Colors.grey.shade200,
                 thickness: 10,
               ),
             ],

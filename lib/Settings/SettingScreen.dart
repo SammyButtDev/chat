@@ -9,6 +9,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blah/constant.dart';
 import 'package:provider/provider.dart';
+import 'Advanced.dart';
+import 'LinkedDevices.dart';
 import 'SmsandMMs.dart';
 import 'notifcation.dart';
 
@@ -86,7 +88,7 @@ class _SettingsState extends State<Settings> {
                     splashColor: Colors.blue,
                     child: ListTile(
                       leading: Icon(
-                        CupertinoIcons.text_bubble_fill,
+                      CupertinoIcons.conversation_bubble,
                         color: Theme.of(context).buttonColor,
                       ),
                       title: Text(
@@ -208,12 +210,42 @@ class _SettingsState extends State<Settings> {
                   InkWell(
                     splashColor: Colors.blue,
                     onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => LinkedDevices())),
+                    child: ListTile(
+                      leading: Icon(CupertinoIcons.rectangle_on_rectangle_angled,
+                          color: Theme.of(context).buttonColor),
+                      title: Text(
+                        'Linked Devices',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    splashColor: Colors.blue,
+                    onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (_) => Help())),
                     child: ListTile(
                       leading: Icon(Icons.help_outline,
                           color: Theme.of(context).buttonColor),
                       title: Text(
                         'Help',
+                        style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    splashColor: Colors.blue,
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => Advanced())),
+                    child: ListTile(
+                      leading: Icon(Icons.help_outline,
+                          color: Theme.of(context).buttonColor),
+                      title: Text(
+                        'Advanced',
                         style: TextStyle(
                             color: Theme.of(context).textTheme.bodyText1.color,
                             fontWeight: FontWeight.bold),

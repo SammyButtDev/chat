@@ -2,6 +2,7 @@ import 'package:blah/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Blocked.dart';
 import 'SettingScreen.dart';
 
 class Privacy extends StatefulWidget {
@@ -13,6 +14,10 @@ class _PrivacyState extends State<Privacy> {
   bool PScreenLock = false;
   bool PScreensecurity = false;
   bool PScreenkeyboard = false;
+  bool PComCalls = false;
+  bool PComReceipt = false;
+  bool PComindicator = false;
+  bool PComlinkPreview = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +44,7 @@ class _PrivacyState extends State<Privacy> {
             children: [
               ListTile(
                 title: Text(
-                  "App acess",
+                  "App access",
                   style: TextStyle(color: CupertinoColors.activeBlue),
                 ),
               ),
@@ -108,7 +113,7 @@ class _PrivacyState extends State<Privacy> {
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
-                    "Sincognito keyboard",
+                    "incognito keyboard",
                     style: TextStyle(
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
@@ -142,6 +147,113 @@ class _PrivacyState extends State<Privacy> {
               Divider(
                 color: Colors.grey.shade100,
                 thickness: 10,
+              ),
+              ListTile(
+                title: Text(
+                  "Communication",
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
+              ),
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Always relay calls",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Relay all calls through the Node server to avoid revealing your IP address to your contact.Enabling will reduce call quality.",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PComCalls,
+                    onChanged: (value) {
+                      setState(() {
+                        PComCalls= value;
+                      });
+                    },
+                  ),
+                ),
+              ), InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Read Reciept",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "if read reciepts are disabled, you won't be able to see read receipts from other",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PComReceipt,
+                    onChanged: (value) {
+                      setState(() {
+                        PComReceipt = value;
+                      });
+                    },
+                  ),
+                ),
+              ), InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Typing indicators",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "if typing indicators are disabled,you won't be able to see typing indicators from others",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PComindicator,
+                    onChanged: (value) {
+                      setState(() {
+                        PComindicator= value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+              InkWell(onTap: (){},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Generate link previews",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Retrieve link previews directly from websites for messages you send",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PComlinkPreview,
+                    onChanged: (value) {
+                      setState(() {
+                        PComlinkPreview= value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+              InkWell(onTap:  () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => Blocked())),
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Blocked users",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                ),
               ),
             ],
           ),
