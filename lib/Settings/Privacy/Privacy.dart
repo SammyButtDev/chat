@@ -1,9 +1,9 @@
-import 'package:blah/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Blocked.dart';
-import 'SettingScreen.dart';
+import 'NewPIn.dart';
+import '../SettingScreen.dart';
 
 class Privacy extends StatefulWidget {
   @override
@@ -18,6 +18,10 @@ class _PrivacyState extends State<Privacy> {
   bool PComReceipt = false;
   bool PComindicator = false;
   bool PComlinkPreview = false;
+  bool PSealIndi = false;
+  bool PSealAllow = false;
+  bool PPInReg =false;
+  bool PPINred =false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +52,8 @@ class _PrivacyState extends State<Privacy> {
                   style: TextStyle(color: CupertinoColors.activeBlue),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -71,7 +76,8 @@ class _PrivacyState extends State<Privacy> {
                   ),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -86,7 +92,8 @@ class _PrivacyState extends State<Privacy> {
                   ),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -109,7 +116,8 @@ class _PrivacyState extends State<Privacy> {
                   ),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -132,17 +140,18 @@ class _PrivacyState extends State<Privacy> {
                   ),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
                     "Learn more",
                     style: TextStyle(
-                        color: CupertinoColors.activeBlue,
+                      color: CupertinoColors.activeBlue,
+                    ),
                   ),
-                ),
                   leading: Icon(Icons.keyboard),
-              ),
+                ),
               ),
               Divider(
                 color: Colors.grey.shade100,
@@ -154,7 +163,8 @@ class _PrivacyState extends State<Privacy> {
                   style: TextStyle(color: CupertinoColors.activeBlue),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -171,12 +181,14 @@ class _PrivacyState extends State<Privacy> {
                     value: PComCalls,
                     onChanged: (value) {
                       setState(() {
-                        PComCalls= value;
+                        PComCalls = value;
                       });
                     },
                   ),
                 ),
-              ), InkWell(onTap: (){},
+              ),
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -198,7 +210,9 @@ class _PrivacyState extends State<Privacy> {
                     },
                   ),
                 ),
-              ), InkWell(onTap: (){},
+              ),
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -215,13 +229,14 @@ class _PrivacyState extends State<Privacy> {
                     value: PComindicator,
                     onChanged: (value) {
                       setState(() {
-                        PComindicator= value;
+                        PComindicator = value;
                       });
                     },
                   ),
                 ),
               ),
-              InkWell(onTap: (){},
+              InkWell(
+                onTap: () {},
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -238,20 +253,166 @@ class _PrivacyState extends State<Privacy> {
                     value: PComlinkPreview,
                     onChanged: (value) {
                       setState(() {
-                        PComlinkPreview= value;
+                        PComlinkPreview = value;
                       });
                     },
                   ),
                 ),
               ),
-              InkWell(onTap:  () => Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => Blocked())),
+              InkWell(
+                onTap: () => Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Blocked())),
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
                     "Blocked users",
                     style: TextStyle(
                         color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                ),
+              ),
+              Divider(color: Colors.grey.shade200,
+              thickness: 10,),
+              ListTile(
+                title: Text(
+                  "Sealed Sender",
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Display Indicators",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "show a status icon when you select Messages details on messages that were delivered using sealed sender",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PSealIndi,
+                    onChanged: (value) {
+                      setState(() {
+                        PSealIndi = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Allow from anyone",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Enable sealed sender for incoming messages from non-contacts and people with whom you have not shared your profile.",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PSealAllow,
+                    onChanged: (value) {
+                      setState(() {
+                        PSealAllow = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+              InkWell(
+                splashColor: CupertinoColors.activeBlue,
+                onTap: () {},
+                child: ListTile(
+                  leading: Icon(
+                    CupertinoIcons.arrow_up_doc_fill,
+                    color: Theme.of(context).buttonColor,
+                  ),
+                  title: Text(
+                    "Learn more",
+                    style: TextStyle(color: CupertinoColors.activeBlue),
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.grey.shade200,
+                thickness: 10,
+              ),
+              ListTile(
+                title: Text(
+                  "Signal PIN",
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                ),
+              ),
+              InkWell(
+                onTap:  () => Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => NewPin())),
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Change you PIN",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "PINs keep information stored with Nodes encrypted so only you can access it.Your profile,settings,and contacts will restore when you reinstall Nodes.",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "PIN reminders",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Reminders help you remember your PIN since it can't be recovered.You'll be asked less frenquently over time.",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PPINred,
+                    onChanged: (value) {
+                      setState(() {
+                        PPINred = value;
+                      });
+                    },
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                splashColor: CupertinoColors.activeBlue,
+                child: ListTile(
+                  title: Text(
+                    "Registration Lock",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text(
+                    "Add extra security by requiring your Nodes PIN to register your phone number with Node again.",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  trailing: Switch(
+                    value: PPInReg,
+                    onChanged: (value) {
+                      setState(() {
+                        PPInReg = value;
+                      });
+                    },
                   ),
                 ),
               ),

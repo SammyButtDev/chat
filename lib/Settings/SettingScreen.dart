@@ -1,18 +1,18 @@
 import 'package:blah/Providers/ThemeProvider.dart';
 import 'package:blah/Screens/HomeScreen.dart';
-import 'package:blah/Settings/Chats.dart';
-import 'package:blah/Settings/Help.dart';
-import 'package:blah/Settings/Privacy.dart';
-import 'package:blah/Settings/Profile.dart';
-import 'package:blah/Settings/data&Storage.dart';
+import 'Chats/Chats.dart';
+import 'Help/Help.dart';
+import 'Privacy/Privacy.dart';
+import 'Profile/Profile.dart';
+import '../DataNStorage/data&Storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blah/constant.dart';
 import 'package:provider/provider.dart';
-import 'Advanced.dart';
+import 'Advanced/Advanced.dart';
 import 'LinkedDevices.dart';
-import 'SmsandMMs.dart';
-import 'notifcation.dart';
+import 'SMSnMMS/SmsandMMs.dart';
+import 'notification/notifcation.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -52,31 +52,25 @@ class _SettingsState extends State<Settings> {
             children: [
               InkWell(
                 onTap: () => Navigator.push(
-            context, MaterialPageRoute(builder: (_) => Profile())),
+                    context, MaterialPageRoute(builder: (_) => Profile())),
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
                     "User",
                     style: TextStyle(
                       fontSize: 20,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyText1
-                          .color,
+                      color: Theme.of(context).textTheme.bodyText1.color,
                     ),
                   ),
-                  subtitle:Text(
+                  subtitle: Text(
                     "+00 000 0000000",
                     style: TextStyle(
-                        color: Theme.of(context)
-                            .textTheme
-                            .bodyText1
-                            .color),
+                        color: Theme.of(context).textTheme.bodyText1.color),
                   ),
-                  leading:CircleAvatar(
+                  leading: CircleAvatar(
                     radius: 32,
                     backgroundImage: AssetImage('images/greg.jpg'),
-                  ) ,
+                  ),
                 ),
               ),
               Column(
@@ -88,7 +82,7 @@ class _SettingsState extends State<Settings> {
                     splashColor: Colors.blue,
                     child: ListTile(
                       leading: Icon(
-                      CupertinoIcons.conversation_bubble,
+                        CupertinoIcons.conversation_bubble,
                         color: Theme.of(context).buttonColor,
                       ),
                       title: Text(
@@ -212,7 +206,8 @@ class _SettingsState extends State<Settings> {
                     onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (_) => LinkedDevices())),
                     child: ListTile(
-                      leading: Icon(CupertinoIcons.rectangle_on_rectangle_angled,
+                      leading: Icon(
+                          CupertinoIcons.rectangle_on_rectangle_angled,
                           color: Theme.of(context).buttonColor),
                       title: Text(
                         'Linked Devices',
@@ -224,8 +219,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   InkWell(
                     splashColor: Colors.blue,
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => Help())),
+                    onTap: () => Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => Help())),
                     child: ListTile(
                       leading: Icon(Icons.help_outline,
                           color: Theme.of(context).buttonColor),
@@ -239,8 +234,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   InkWell(
                     splashColor: Colors.blue,
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => Advanced())),
+                    onTap: () => Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => Advanced())),
                     child: ListTile(
                       leading: Icon(Icons.help_outline,
                           color: Theme.of(context).buttonColor),

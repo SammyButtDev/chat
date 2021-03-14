@@ -1,4 +1,5 @@
-import 'package:blah/Settings/Privacy.dart';
+import 'package:blah/DataNStorage/UseProxy.dart';
+import 'package:blah/Settings/Privacy/Privacy.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -88,6 +89,20 @@ class _DataNStorageState extends State<DataNStorage> {
               onTap: (){},
               child: ListTile(
                 title: Text("Using less data may improve calls on bad networks",style: TextStyle(fontSize:12,color: Theme.of(context).textTheme.bodyText1.color),),
+              ),
+            ),
+            Divider(thickness: 10,
+            color: Colors.grey.shade200,),
+            ListTile(
+              title: Text("Proxy",style: TextStyle(color: CupertinoColors.activeBlue),),
+            ),
+            InkWell(
+              onTap: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => UseProxy())),
+              splashColor: CupertinoColors.activeBlue,
+              child: ListTile(
+                title: Text("Use Proxy",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+                subtitle: Text("Off",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
               ),
             ),
           ],

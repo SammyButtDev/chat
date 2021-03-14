@@ -1,7 +1,8 @@
-import 'package:blah/Settings/About.dart';
-import 'package:blah/Settings/YourName.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'About.dart';
+import 'YourName.dart';
 
 class Profile extends StatefulWidget {
   @override

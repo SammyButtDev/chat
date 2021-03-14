@@ -10,7 +10,9 @@ class _BlockedState extends State<Blocked> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text("Blocked users",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+        elevation: 0,
+      ),
       backgroundColor: Theme.of(context).primaryColor,
       body: Container(
         child: Column(

@@ -1,4 +1,6 @@
-import 'package:blah/Settings/Privacy.dart';
+import 'package:blah/Settings/Chats/chatsbackup.dart';
+import 'package:blah/Settings/Privacy/Privacy.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class SettingChat extends StatefulWidget {
   @override
@@ -22,7 +24,7 @@ class _SettingChatState extends State<SettingChat> {
         child: Container(
           child: Column(
             children: [
-              ListTile(title:Text("Messages",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color,fontWeight: FontWeight.bold,fontSize: 18)),),
+              ListTile(title:Text("Messages",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
               InkWell(onTap: (){
                 CustomDialog(context, "Message font size","Small","Normal","large");
               },
@@ -117,6 +119,20 @@ class _SettingChatState extends State<SettingChat> {
                 color: Colors.grey.shade200,
                 thickness: 10,
               ),
+              ListTile(title:Text("Backups",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
+              InkWell(onTap: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => ChatBackups())),
+                splashColor: Colors.blue,
+                child: ListTile(
+                  title: Text(
+                    "Chat backups",
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1.color),
+                  ),
+                  subtitle: Text("backup chats to external storage",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+                ),
+              ),
+
             ],
           ),
         ),
