@@ -28,7 +28,44 @@ class _ProfileState extends State<Profile> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.15,
-              color: Colors.grey,
+              child: Center(
+                child: Stack(
+                  children: [
+                    InkWell(onTap: (){
+                      setState(() {
+                        settingModalBottomSheet(context);
+                      });
+                    },
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          border: Border.all(color:Colors.white,width: 2),
+                          shape: BoxShape.circle,
+                          color: Colors.grey.shade200,
+                        ),
+                        child: Center(
+                            child: Icon(
+                          Icons.person_outline_outlined,
+                          size: 90,
+                        )),
+                      ),
+                    ),
+                    Positioned(bottom: 0,
+                    right: 0,
+                    child: Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(color: Colors.white,shape: BoxShape.circle,boxShadow: [BoxShadow(
+                        spreadRadius: 2,offset: Offset(0,1),
+                        color: Colors.black.withOpacity(0.1),
+                      ),],
+                      ),
+                      child: Icon(Icons.camera_alt_outlined),
+                    )),
+                  ],
+                ),
+              ),
             ),
             InkWell(
                 onTap: () => Navigator.push(
@@ -86,4 +123,33 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
+}
+settingModalBottomSheet(context,){
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc){
+
+        return Container(
+          child: new Wrap(
+            children: <Widget>[
+              new ListTile(
+                  leading: new Icon(Icons.camera_alt_outlined),
+                  title: new Text('Take photo'),
+                  onTap: () => {}
+              ),
+              new ListTile(
+                  leading: new Icon(CupertinoIcons.photo),
+                  title: new Text('Block'),
+                  onTap: () => {}
+              ),
+              new ListTile(
+                leading: new Icon(CupertinoIcons.delete),
+                title: new Text('View safety number'),
+                onTap: () => {},
+              ),
+            ],
+          ),
+        );
+      }
+  );
 }

@@ -28,21 +28,23 @@ class _AboutUserState extends State<AboutUser> {
             Row(
               children: [
                 IconButton(icon: Icon(Icons.emoji_emotions_outlined), onPressed: (){},splashColor: CupertinoColors.activeBlue,),
-                Expanded(child: TextFormField()),
+                Expanded(child: TextFormField(
+                  decoration: InputDecoration(hintText: "Write a few words about yourself...",hintStyle: TextStyle(color: Colors.grey.shade200)),
+                )),
                 IconButton(icon: Icon(Icons.close), onPressed: (){},splashColor:  CupertinoColors.activeBlue,),
               ],
             ),
             InkWell(onTap: (){},
               splashColor: CupertinoColors.activeBlue,
               child: ListTile(
-                leading: ImageIcon(AssetImage("images/about/hello.png")),
+                leading: CircleAvatar(child: Image.asset("images/about/hello.png"),),
                 title: Text("Speak freely",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
               ),
             ),
             InkWell(onTap: (){},
               splashColor: CupertinoColors.activeBlue,
               child: ListTile(
-                leading: ImageIcon(AssetImage("images/about/silence.png")),
+                leading: ImageIcon(AssetImage("images/about/silence.png"),color: Colors.black,),
                 title: Text("Encrypted",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
               ),
             ),

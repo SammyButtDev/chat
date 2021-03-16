@@ -36,10 +36,9 @@ class _BlockedState extends State<Blocked> {
               title: Text("Blocked users",style: TextStyle(color: CupertinoColors.activeBlue),),
             ),
             SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text("No blocked users",style: TextStyle(color: Colors.grey.shade400),),
-                ],
+
+              child: Container(
+                child: Center(child: Text("No blocked users",style: TextStyle(color: Colors.grey.shade400),)),
               ),
             ),
           ],

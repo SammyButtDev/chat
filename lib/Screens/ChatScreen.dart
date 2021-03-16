@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:blah/Animations/ActiveButton.dart';
+import 'package:blah/Screens/HomeScreen.dart';
 import 'package:blah/Screens/VoiceGroupCallScreen.dart';
 import 'package:blah/constant.dart';
 import 'package:flutter/material.dart';
@@ -80,10 +81,22 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.user.name),
+        title: Row(
+          children: [ CircleAvatar(
+            backgroundColor: Colors.grey.shade300,
+            backgroundImage: AssetImage(
+              widget.user.imageUrl,
+            ),
+          ),
+            SizedBox(
+              width: 3 ,
+            ),
+            Text(widget.user.name),
+          ],
+        ),
         backgroundColor: widget.user.color,
         actions: [
           PopupMenuButton(

@@ -1,7 +1,8 @@
 import 'package:blah/Screens/ChatScreen.dart';
-import 'package:blah/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../constant.dart';
 
 
 class Chat_page extends StatefulWidget {
@@ -37,13 +38,18 @@ class _Chat_pageState extends State<Chat_page> {
                     ),),
                   child: ListTile(
                     hoverColor: Colors.blue,
-                    leading: CircleAvatar(
-                      radius: 28,
-                      backgroundColor: Colors.grey.shade300,
-                      backgroundImage: AssetImage(
-                        chat.sender.imageUrl,
+                    leading: InkWell(onTap:(){
+                      setState(() {
+                        settingModalBottomSheet(context,index);
+                      });
+                    },
+                      child: CircleAvatar(
+                        radius: 28,
+                        backgroundColor: Colors.grey.shade300,
+                        backgroundImage: AssetImage(
+                          chat.sender.imageUrl,
+                        ),
                       ),
-
                     ),
                     title: Text(
                       chats[index].sender.name,
@@ -78,3 +84,73 @@ class _Chat_pageState extends State<Chat_page> {
     );
   }
 }
+settingModalBottomSheet(context,index){
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc){
+        final Message chat = chats[index];
+
+        return Container(
+          child: new Wrap(
+            children: <Widget>[Center(
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.grey.shade300,
+                    backgroundImage: AssetImage(
+                      chat.sender.imageUrl,
+                    ),
+                  ),
+                  SizedBox(height: 3,),
+                  Text(chat.sender.name,style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+                  Text("+xx xxx xxxxxxx",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+                  SizedBox(height: 10,),
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(icon: Icon(CupertinoIcons.conversation_bubble,color: CupertinoColors.activeBlue,), onPressed:()=> Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ChatScreen(
+                            user: chat.sender,
+                          ),
+                        ),), ),
+                      SizedBox(width: 20,),
+                      IconButton(icon: Icon(CupertinoIcons.video_camera,size: 32,color: CupertinoColors.activeBlue,), onPressed:()=> Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ChatScreen(
+                            user: chat.sender,
+                          ),
+                        ),), ),
+                      SizedBox(width: 20,),
+                      IconButton(icon: Icon(CupertinoIcons.phone,color: CupertinoColors.activeBlue,), onPressed:()=> Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ChatScreen(
+                            user: chat.sender,
+                          ),
+                        ),), ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+              new ListTile(
+                  leading: new Icon(Icons.block_outlined),
+                  title: new Text('Block'),
+                  onTap: () => {}
+              ),
+              new ListTile(
+                leading: new Icon(Icons.info_outline_rounded),
+                title: new Text('View safety number'),
+                onTap: () => {},
+              ),
+            ],
+          ),
+        );
+      }
+  );
+}
+

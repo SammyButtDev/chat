@@ -1,5 +1,8 @@
+import 'package:blah/Settings/Advanced/AdvancePINSetting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'DeleteAccount.dart';
 
 class Advanced extends StatefulWidget {
   @override
@@ -39,7 +42,8 @@ class _AdvancedState extends State<Advanced> {
                 ),
               ),
             ),
-            InkWell(onTap: (){},
+            InkWell(onTap: () => Navigator.push(
+                context, MaterialPageRoute(builder: (_) => AdvancePinSettings())),
             splashColor: CupertinoColors.activeBlue,
             child: ListTile(
             title: Text("Advanced PIN settings",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
@@ -56,8 +60,12 @@ class _AdvancedState extends State<Advanced> {
               color: Colors.grey.shade200,
               thickness: 10,
             ),
-            ListTile(
-              title: Text("Delete account",style: TextStyle(color: CupertinoColors.systemRed),),
+            InkWell(onTap:() => Navigator.push(
+                context, MaterialPageRoute(builder: (_) => DeleteAcc())),
+              splashColor: CupertinoColors.activeBlue,
+              child: ListTile(
+                title: Text("Delete account",style: TextStyle(color: CupertinoColors.systemRed),),
+              ),
             ),
           ],
         ),
