@@ -36,42 +36,44 @@ class _Chat_pageState extends State<Chat_page> {
                         user: chat.sender,
                       ),
                     ),),
-                  child: ListTile(
-                    hoverColor: Colors.blue,
-                    leading: InkWell(onTap:(){
-                      setState(() {
-                        settingModalBottomSheet(context,index);
-                      });
-                    },
-                      child: CircleAvatar(
-                        radius: 28,
-                        backgroundColor: Colors.grey.shade300,
-                        backgroundImage: AssetImage(
-                          chat.sender.imageUrl,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical:10.0),
+                    child: ListTile(
+                      hoverColor: Colors.blue,
+                      leading: InkWell(onTap:(){
+                        setState(() {
+                          settingModalBottomSheet(context,index);
+                        });
+                      },
+                        child: CircleAvatar(
+                          radius: 28,
+                          backgroundColor: Colors.grey.shade300,
+                          backgroundImage: AssetImage(
+                            chat.sender.imageUrl,
+                          ),
                         ),
                       ),
-                    ),
-                    title: Text(
-                      chats[index].sender.name,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Theme.of(context).textTheme.bodyText1.color,
-                      ),
-                    ),
-                    subtitle: Text(chats[index].text,style: TextStyle(
-                      color: Colors.grey.shade700,
-                      fontSize: 14,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: chat.unread?FontWeight.bold:FontWeight.normal,
-                    ),),
-                    trailing: Column(
-                      children: [
-                        Text(chat.time,style: TextStyle(
+                      title: Text(
+                        chats[index].sender.name,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
                           color: Theme.of(context).textTheme.bodyText1.color,
-                          fontWeight:  chat.unread?FontWeight.bold:FontWeight.normal,
-                        ),),
-                      ],
+                        ),
+                      ),
+                      subtitle: Text(chats[index].text,style: TextStyle(
+                        color: Colors.grey.shade700,
+                        fontSize: 14,
+                        fontWeight: chat.unread?FontWeight.bold:FontWeight.normal,
+                      ),),
+                      trailing: Column(
+                        children: [
+                          Text(chat.time,style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyText1.color,
+                            fontWeight:  chat.unread?FontWeight.bold:FontWeight.normal,
+                          ),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -91,6 +93,7 @@ settingModalBottomSheet(context,index){
         final Message chat = chats[index];
 
         return Container(
+          color: Theme.of(context).primaryColor,
           child: new Wrap(
             children: <Widget>[Center(
               child: Column(
@@ -138,13 +141,13 @@ settingModalBottomSheet(context,index){
             ),
 
               new ListTile(
-                  leading: new Icon(Icons.block_outlined),
-                  title: new Text('Block'),
+                  leading: new Icon(Icons.block_outlined,color: Theme.of(context).buttonColor,),
+                  title: new Text('Block',style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
                   onTap: () => {}
               ),
               new ListTile(
-                leading: new Icon(Icons.info_outline_rounded),
-                title: new Text('View safety number'),
+                leading: new Icon(Icons.info_outline_rounded,color: Theme.of(context).buttonColor,),
+                title: new Text('View safety number',style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color)),
                 onTap: () => {},
               ),
             ],

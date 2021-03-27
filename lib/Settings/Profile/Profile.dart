@@ -69,7 +69,7 @@ class _ProfileState extends State<Profile> {
             ),
             InkWell(
                 onTap: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => YourName())),
+                    context, CupertinoPageRoute(builder: (_) => YourName())),
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   leading: Icon(
@@ -89,7 +89,7 @@ class _ProfileState extends State<Profile> {
                 )),
             InkWell(
               onTap: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => AboutUser())),
+                  context, CupertinoPageRoute(builder: (_) => AboutUser())),
               splashColor: CupertinoColors.activeBlue,
               child: ListTile(
                 leading: Icon(
@@ -132,6 +132,9 @@ settingModalBottomSheet(context,){
         return Container(
           child: new Wrap(
             children: <Widget>[
+              ListTile(
+                  title: new Text('Choose photo'),
+              ),
               new ListTile(
                   leading: new Icon(Icons.camera_alt_outlined),
                   title: new Text('Take photo'),

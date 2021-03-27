@@ -30,9 +30,13 @@ class _ChatBackupsState extends State<ChatBackups> {
               ),
             ),
             ListTile(
-              leading: FlatButton(
-                onPressed: () {},
-                color: CupertinoColors.activeBlue,
+              leading: TextButton(style: TextButton.styleFrom(
+                backgroundColor: CupertinoColors.activeBlue
+              ),
+                onPressed: () {
+                BackUpCustomDialog(context,);
+                },
+
                 child: Text(
                   "Turn On",
                   style: TextStyle(
@@ -53,3 +57,32 @@ class _ChatBackupsState extends State<ChatBackups> {
     );
   }
 }
+
+
+Future<void> BackUpCustomDialog(context, ) {
+
+
+  return showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Theme.of(context).primaryColor,
+          content: Container(
+            height: 100,
+            width: 310,
+            child: Column(
+              children: [
+                Icon(Icons.folder,color: CupertinoColors.activeBlue,size: 60,),
+                Text("TO enable backups,choose a folder. Backups will be saved to this location",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
+
+              ],
+            ),
+          ),
+          actions: [TextButton(onPressed:  () {
+            Navigator.of(context).pop(); },child: Text("Cancel",style: TextStyle(color: CupertinoColors.activeBlue),)),
+            TextButton(onPressed:  () {},child: Text("Choose Folder",style: TextStyle(color: CupertinoColors.activeBlue),))],
+        );
+      });
+}
+

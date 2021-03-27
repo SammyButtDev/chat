@@ -20,8 +20,8 @@ class _PrivacyState extends State<Privacy> {
   bool PComlinkPreview = false;
   bool PSealIndi = false;
   bool PSealAllow = false;
-  bool PPInReg =false;
-  bool PPINred =false;
+  bool PPInReg = false;
+  bool PPINred = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -261,7 +261,7 @@ class _PrivacyState extends State<Privacy> {
               ),
               InkWell(
                 onTap: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => Blocked())),
+                    context, CupertinoPageRoute(builder: (_) => Blocked())),
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -271,8 +271,10 @@ class _PrivacyState extends State<Privacy> {
                   ),
                 ),
               ),
-              Divider(color: Colors.grey.shade200,
-              thickness: 10,),
+              Divider(
+                color: Colors.grey.shade200,
+                thickness: 10,
+              ),
               ListTile(
                 title: Text(
                   "Sealed Sender",
@@ -352,8 +354,8 @@ class _PrivacyState extends State<Privacy> {
                 ),
               ),
               InkWell(
-                onTap:  () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => NewPin())),
+                onTap: () => Navigator.push(
+                    context, CupertinoPageRoute(builder: (_) => NewPin())),
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -487,6 +489,16 @@ Future<void> CustomDialog(context, title, tab1, tab2, tab3) {
               ),
             ],
           ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  "Cancel",
+                  style: TextStyle(color: CupertinoColors.activeBlue),
+                )),
+          ],
         );
       });
 }

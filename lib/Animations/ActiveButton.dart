@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlayButton extends StatefulWidget {
@@ -65,9 +66,10 @@ class _PlayButtonState extends State<PlayButton> with TickerProviderStateMixin {
   Widget _buildIcon(bool isPlaying) {
     return SizedBox.expand(
       key: ValueKey<bool>(isPlaying),
-      child: IconButton(
-        icon: isPlaying ? widget.pauseIcon : widget.playIcon,
-        onPressed: _onToggle,
+      child: GestureDetector(onLongPress: _onToggle,
+        child: IconButton(
+          icon: isPlaying ? widget.pauseIcon : widget.playIcon,
+        ),
       ),
     );
   }
@@ -80,9 +82,7 @@ class _PlayButtonState extends State<PlayButton> with TickerProviderStateMixin {
         alignment: Alignment.center,
         children: [
           if (_showWaves) ...[
-            Blob(color: Color(0xff0092ff), scale: _scale, rotation: _rotation),
-            Blob(color: Colors.pinkAccent, scale: _scale, rotation: _rotation * 2 - 30),
-            Blob(color: Colors.purple.shade900, scale: _scale, rotation: _rotation * 3 - 45),
+            Blob(color: CupertinoColors.systemRed, scale: _scale, ),
           ],
           Container(
             constraints: BoxConstraints.expand(),
@@ -125,10 +125,10 @@ class Blob extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(150),
+              topLeft: Radius.circular(240),
               topRight: Radius.circular(240),
-              bottomLeft: Radius.circular(220),
-              bottomRight: Radius.circular(180),
+              bottomLeft: Radius.circular(240),
+              bottomRight: Radius.circular(240),
             ),
           ),
         ),

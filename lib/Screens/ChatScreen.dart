@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:blah/Animations/ActiveButton.dart';
+import 'package:blah/OtherUser.dart';
 import 'package:blah/Screens/HomeScreen.dart';
 import 'package:blah/Screens/VoiceGroupCallScreen.dart';
 import 'package:blah/constant.dart';
@@ -84,21 +85,26 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context,) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [ CircleAvatar(
-            backgroundColor: Colors.grey.shade300,
-            backgroundImage: AssetImage(
-              widget.user.imageUrl,
+        title: InkWell(onTap: () => Navigator.push(
+            context, MaterialPageRoute(builder: (_) => OtherProfile())),
+          child: Row(
+            children: [ CircleAvatar(
+              backgroundColor: Colors.grey.shade300,
+              backgroundImage: AssetImage(
+                widget.user.imageUrl,
+              ),
             ),
+              SizedBox(
+                width: 3 ,
+              ),
+              Text(widget.user.name,style: TextStyle(color: Colors.white),),
+            ],
           ),
-            SizedBox(
-              width: 3 ,
-            ),
-            Text(widget.user.name),
-          ],
         ),
         backgroundColor: widget.user.color,
         actions: [
+          IconButton(icon: Icon(Icons.videocam,color: Colors.white,), onPressed: (){}),
+          IconButton(icon: Icon(Icons.phone,color: Colors.white,), onPressed: (){}),
           PopupMenuButton(
             color: Theme.of(context).primaryColor,
             onSelected: (WhyFarther result) {
@@ -152,7 +158,7 @@ class _ChatScreenState extends State<ChatScreen> {
             child: IconButton(
               icon: Icon(
                 Icons.more_vert,
-                color: Theme.of(context).buttonColor,
+                color: Colors.white,
               ),
             ),
           ),
@@ -245,35 +251,45 @@ class _ChatScreenState extends State<ChatScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.emoji_emotions,
-                        color: Colors.purple.shade300,
-                        size: 29,
-                      ),
-                      onPressed: () {
-                      },
-                    ),
-                    RotationTransition(
-                      turns: AlwaysStoppedAnimation(-45 / 360),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.attach_file_outlined,
-                          color: Colors.orangeAccent[400],
-                          size: 29,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
                     Expanded(
                       child: TextFormField(
+
                         style: TextStyle(
+
                             color: Theme.of(context).textTheme.bodyText1.color),
-                        decoration: InputDecoration.collapsed(
-                          hintText: " Type Something",
+                        decoration: InputDecoration( focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                          prefixIcon: IconButton(icon: Icon(Icons.emoji_emotions), onPressed: (){}),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+                          suffixIcon: SizedBox(width: 70,
+                            child: Stack(
+                              children:[
+                              Row(mainAxisAlignment:MainAxisAlignment.end,children: [
+                                Expanded(child: Icon(Icons.camera_alt_rounded)),
+                                SizedBox(width: 10,),
+                                SizedBox(
+                                  height: 60.0,
+                                  width: 60.0,
+                                  child:PlayButton(
+                                    initialIsPlaying: true,
+                                    playIcon: Icon(Icons.mic,
+                                      size: 35,
+                                      color: Colors.white,
+                                    ),
+                                    pauseIcon: Icon(
+                                      Icons.mic,
+                                      color: Colors.blue,
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                ),
+                              ],),
+                              ],
+                            ),
+                          ),
+                          hintText: "Node message",
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w500,
-                            color: Theme.of(context).textTheme.bodyText1.color,
+                            color:Colors.black,
                           ),
                         ),
                         onChanged: (value){
@@ -288,23 +304,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     SizedBox(
                       width: 5,
                     ),
-                    SizedBox(
-                      height: 60.0,
-                      width: 60.0,
-                      child: PlayButton(
-                        initialIsPlaying: true,
-                        playIcon: Icon(
-                          _isTyping ? Icons.send : Icons.mic,
-                          size: 35,
-                          color: Colors.orange,
-                        ),
-                        pauseIcon: Icon(
-                          _isTyping ? Icons.send : Icons.mic,
-                          color: Colors.orange,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
+                  FloatingActionButton(onPressed: (){},mini: true,child: _isTyping?Icon(Icons.send):Icon(Icons.add),),
                   ],
                 ),
               ),

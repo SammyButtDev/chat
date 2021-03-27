@@ -26,7 +26,7 @@ class _SettingChatState extends State<SettingChat> {
             children: [
               ListTile(title:Text("Messages",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
               InkWell(onTap: (){
-                CustomDialog(context, "Message font size","Small","Normal","large");
+                ChatCustomDialog(context, "Message font size","Small","Normal","large","Extra large");
               },
                 splashColor: Colors.blue,
                 child: ListTile(
@@ -121,7 +121,7 @@ class _SettingChatState extends State<SettingChat> {
               ),
               ListTile(title:Text("Backups",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
               InkWell(onTap: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => ChatBackups())),
+                  context, CupertinoPageRoute(builder: (_) => ChatBackups())),
                 splashColor: Colors.blue,
                 child: ListTile(
                   title: Text(
@@ -140,3 +140,89 @@ class _SettingChatState extends State<SettingChat> {
     );
   }
 }
+
+enum Character {
+  Everyone,
+  Contacts,
+  Me,
+  other,
+}
+
+Future<void> ChatCustomDialog(context, title, tab1, tab2, tab3,tab4) {
+
+
+  SingingCharacter _character = SingingCharacter.Everyone;
+  return showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Theme.of(context).primaryColor,
+          title: Text(
+            title,
+            style:
+            TextStyle(color: Theme.of(context).textTheme.bodyText1.color),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: Text(
+                  tab1,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Everyone,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
+              ),
+              ListTile(
+                title: Text(
+                  tab2,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Contacts,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
+              ),
+              ListTile(
+                title: Text(
+                  tab3,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Me,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
+              ),
+              ListTile(
+                title: Text(
+                  tab4,
+                  style: TextStyle(
+                      color: Theme.of(context).textTheme.bodyText1.color),
+                ),
+                leading: Radio(
+                    value: SingingCharacter.Me,
+                    groupValue: _character,
+                    onChanged: (SingingCharacter value) {
+                      return _character = value;
+                    }),
+              ),
+            ],
+          ),
+          actions: [TextButton(onPressed:  () {
+          Navigator.of(context).pop(); },child: Text("Cancel",style: TextStyle(color: CupertinoColors.activeBlue),))],
+        );
+      });
+}
+

@@ -43,7 +43,7 @@ class _AdvancedState extends State<Advanced> {
               ),
             ),
             InkWell(onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => AdvancePinSettings())),
+                context, CupertinoPageRoute(builder: (_) => AdvancePinSettings())),
             splashColor: CupertinoColors.activeBlue,
             child: ListTile(
             title: Text("Advanced PIN settings",style: TextStyle(color: Theme.of(context).textTheme.bodyText1.color),),
@@ -61,7 +61,7 @@ class _AdvancedState extends State<Advanced> {
               thickness: 10,
             ),
             InkWell(onTap:() => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => DeleteAcc())),
+                context, CupertinoPageRoute(builder: (_) => DeleteAcc())),
               splashColor: CupertinoColors.activeBlue,
               child: ListTile(
                 title: Text("Delete account",style: TextStyle(color: CupertinoColors.systemRed),),

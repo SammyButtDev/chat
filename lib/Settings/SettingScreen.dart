@@ -1,3 +1,4 @@
+import 'package:blah/Components/settings_list_tile.dart';
 import 'package:blah/Providers/ThemeProvider.dart';
 import 'package:blah/Screens/HomeScreen.dart';
 import 'Chats/Chats.dart';
@@ -7,7 +8,6 @@ import 'Profile/Profile.dart';
 import '../DataNStorage/data&Storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:blah/constant.dart';
 import 'package:provider/provider.dart';
 import 'Advanced/Advanced.dart';
 import 'LinkedDevices.dart';
@@ -34,7 +34,7 @@ class _SettingsState extends State<Settings> {
           ),
           onPressed: () => Navigator.pop(
             context,
-            MaterialPageRoute(
+            CupertinoPageRoute(
               builder: (_) => HomeScreen(),
             ),
           ),
@@ -52,7 +52,7 @@ class _SettingsState extends State<Settings> {
             children: [
               InkWell(
                 onTap: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => Profile())),
+                    context, CupertinoPageRoute(builder: (_) => Profile())),
                 splashColor: CupertinoColors.activeBlue,
                 child: ListTile(
                   title: Text(
@@ -78,30 +78,13 @@ class _SettingsState extends State<Settings> {
                 children: [
                   InkWell(
                     onTap: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => SMMs())),
+                        context, CupertinoPageRoute(builder: (_) => SMMs())),
                     splashColor: Colors.blue,
-                    child: ListTile(
-                      leading: Icon(
-                        CupertinoIcons.conversation_bubble,
-                        color: Theme.of(context).buttonColor,
-                      ),
-                      title: Text(
-                        'SMS and MMS',
-                        style: TextStyle(
-                            color: Theme.of(context).textTheme.bodyText1.color,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      subtitle: Text(
-                        'Off',
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1.color,
-                        ),
-                      ),
-                    ),
+                    child: SettingListTile(iconData: CupertinoIcons.conversation_bubble, title: 'SMS & MMS',),
                   ),
                   InkWell(
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => notification())),
+                        CupertinoPageRoute(builder: (_) => notification())),
                     splashColor: Colors.blue,
                     child: ListTile(
                       leading: Icon(
@@ -124,7 +107,7 @@ class _SettingsState extends State<Settings> {
                   ), //SMS
                   InkWell(
                     onTap: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => Privacy())),
+                        context, CupertinoPageRoute(builder: (_) => Privacy())),
                     splashColor: Colors.blue,
                     child: ListTile(
                       leading: Icon(
@@ -173,7 +156,7 @@ class _SettingsState extends State<Settings> {
                   InkWell(
                     splashColor: Colors.blue,
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => SettingChat())),
+                        CupertinoPageRoute(builder: (_) => SettingChat())),
                     child: ListTile(
                       focusColor: Colors.blue,
                       leading: Icon(Icons.image_outlined,
@@ -189,7 +172,7 @@ class _SettingsState extends State<Settings> {
                   InkWell(
                     splashColor: Colors.blue,
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => DataNStorage())),
+                        CupertinoPageRoute(builder: (_) => DataNStorage())),
                     child: ListTile(
                       leading: Icon(Icons.inbox,
                           color: Theme.of(context).buttonColor),
@@ -204,7 +187,7 @@ class _SettingsState extends State<Settings> {
                   InkWell(
                     splashColor: Colors.blue,
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => LinkedDevices())),
+                        CupertinoPageRoute(builder: (_) => LinkedDevices())),
                     child: ListTile(
                       leading: Icon(
                           CupertinoIcons.rectangle_on_rectangle_angled,
@@ -220,7 +203,7 @@ class _SettingsState extends State<Settings> {
                   InkWell(
                     splashColor: Colors.blue,
                     onTap: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => Help())),
+                        context, CupertinoPageRoute(builder: (_) => Help())),
                     child: ListTile(
                       leading: Icon(Icons.help_outline,
                           color: Theme.of(context).buttonColor),
@@ -235,10 +218,9 @@ class _SettingsState extends State<Settings> {
                   InkWell(
                     splashColor: Colors.blue,
                     onTap: () => Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => Advanced())),
+                        context, CupertinoPageRoute(builder: (_) => Advanced())),
                     child: ListTile(
-                      leading: Icon(Icons.help_outline,
-                          color: Theme.of(context).buttonColor),
+                      leading:Icon(CupertinoIcons.chevron_left_slash_chevron_right,color: Theme.of(context).buttonColor,),
                       title: Text(
                         'Advanced',
                         style: TextStyle(
