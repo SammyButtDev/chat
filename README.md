@@ -1,4 +1,4 @@
-# blah
+# ChatApp
 
 A new Flutter application.
 
