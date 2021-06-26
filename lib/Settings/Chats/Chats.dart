@@ -26,7 +26,7 @@ class _SettingChatState extends State<SettingChat> {
             children: [
               ListTile(title:Text("Messages",style: TextStyle(color: CupertinoColors.activeBlue,fontWeight: FontWeight.bold,fontSize: 18)),),
               InkWell(onTap: (){
-                ChatCustomDialog(context, "Message font size","Small","Normal","large","Extra large");
+                chatCustomDialog(context, "Message font size","Small","Normal","large","Extra large");
               },
                 splashColor: Colors.blue,
                 child: ListTile(
@@ -148,7 +148,7 @@ enum Character {
   other,
 }
 
-Future<void> ChatCustomDialog(context, title, tab1, tab2, tab3,tab4) {
+Future<void> chatCustomDialog(context, title, tab1, tab2, tab3,tab4) {
 
 
   SingingCharacter _character = SingingCharacter.Everyone;

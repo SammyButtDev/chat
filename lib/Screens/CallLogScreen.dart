@@ -1,11 +1,4 @@
-import 'package:blah/Screens/HomeScreen.dart';
-import 'package:blah/Screens/VoiceCallScreen.dart';
-import 'package:blah/Screens/VoiceGroupCallScreen.dart';
-import 'package:blah/constant.dart';
-import 'package:flutter/material.dart';
-
-
-class CallLog extends StatefulWidget {
+/*class CallLog extends StatefulWidget {
   @override
   _CallLogState createState() => _CallLogState();
 }
@@ -172,4 +165,4 @@ class _CallLogState extends State<CallLog> {
       ),
     );
   }
-}
+}*/

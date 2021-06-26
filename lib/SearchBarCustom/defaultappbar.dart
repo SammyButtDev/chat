@@ -1,6 +1,7 @@
 import 'package:blah/Settings/SettingScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'appPainter.dart';
 import 'custom search.dart';
@@ -73,20 +74,14 @@ class _DefaultAppBarState extends State<DefaultAppBar>
           padding: const EdgeInsets.all(3.0),
           child: GestureDetector(
             onLongPress: () {
-              _ProfilePic(context);
+              _profilePic(context);
             },
-            onTap: () => Navigator.push(
-                context, CupertinoPageRoute(builder: (_) => Settings())),
+            onTap: () => showCupertinoModalBottomSheet(context: context,expand: true, builder: (context)=>Settings()),
             child: Container(
                 decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
-              image: DecorationImage(
-                image: AssetImage(
-                  'images/greg.jpg',
-                ),
-                fit: BoxFit.fill,
-              ),
-            )),
+            ),
+            child: Icon(Icons.circle),),
           ),
         ),
         title: Text(
@@ -196,7 +191,7 @@ class _DefaultAppBarState extends State<DefaultAppBar>
   }
 }
 
-Future<void> _ProfilePic(context) async {
+Future<void> _profilePic(context) async {
   return showDialog<void>(
     context: context,
     barrierDismissible: false, // user must tap button!

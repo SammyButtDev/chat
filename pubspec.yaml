@@ -24,8 +24,19 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.3.3
-  audioplayers: ^0.17.3
-  shared_preferences: ^0.5.12+4
+  camera: ^0.8.1
+  path: ^1.8.0
+  path_provider: ^2.0.1
+  modal_bottom_sheet: ^2.0.0
+  emoji_picker: ^0.1.0
+  shared_preferences: ^0.5.4+1
+  socket_io_client: ^0.9.12
+  video_player: ^2.1.1
+  bubble: ^1.2.1
+  sizer: ^2.0.13
+
+
+
 
 
 

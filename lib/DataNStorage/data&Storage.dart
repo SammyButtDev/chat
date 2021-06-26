@@ -57,7 +57,7 @@ class _DataNStorageState extends State<DataNStorage> {
             InkWell(
               splashColor: Colors.blue,
               onTap: () {
-                FTIleCustomDialog(
+                fTIleCustomDialog(
                     context, "When roaming", "Images", "Audio", "Video","Document");
               },
               child: ListTile(
@@ -78,7 +78,7 @@ class _DataNStorageState extends State<DataNStorage> {
             InkWell(
               splashColor: Colors.blue,
               onTap: () {
-                FTIleCustomDialog(
+                fTIleCustomDialog(
                     context, "When roaming", "Images", "Audio", "Video","Document");
               },
               child: ListTile(
@@ -99,7 +99,7 @@ class _DataNStorageState extends State<DataNStorage> {
             InkWell(
               splashColor: Colors.blue,
               onTap: () {
-                FTIleCustomDialog(
+                fTIleCustomDialog(
                     context, "When roaming", "Images", "Audio", "Video","Document");
               },
               child: ListTile(
@@ -132,7 +132,7 @@ class _DataNStorageState extends State<DataNStorage> {
             InkWell(
               splashColor: Colors.blue,
               onTap: () {
-                CustomDialog(context, "Use less data for calls", "Never",
+                customDialog(context, "Use less data for calls", "Never",
                     "cellular only", "Wifi and cellular");
               },
               child: ListTile(
@@ -198,7 +198,7 @@ class _DataNStorageState extends State<DataNStorage> {
 
 
 
- FTIleCustomDialog(context, title, tab1, tab2, tab3,tab4) {
+ fTIleCustomDialog(context, title, tab1, tab2, tab3,tab4) {
   // SingingCharacter _character = SingingCharacter.Everyone;
   return showDialog(
       context: context,

@@ -1,19 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class notification extends StatefulWidget {
+class Notifications extends StatefulWidget {
   @override
-  _notificationState createState() => _notificationState();
+  _NotificationsState createState() => _NotificationsState();
 }
 
-class _notificationState extends State<notification> {
-  bool Convotones = false;
+class _NotificationsState extends State<Notifications> {
+  bool convotones = false;
   bool sound =false;
   bool vibrate = false;
-  bool Callvibrate = false;
-  bool MNotif = false;
-  bool CallNotif = false;
-  bool EventNotif = false;
+  bool callvibrate = false;
+  bool mNotif = false;
+  bool callNotif = false;
+  bool eventNotif = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,10 @@ class _notificationState extends State<notification> {
                 ),
                 subtitle: Text("Play sounds for incoming and outgoing messages."),
                 trailing: Switch(
-                  value: MNotif,
+                  value: mNotif,
                   onChanged: (value) {
                     setState(() {
-                      MNotif = value;
+                      mNotif = value;
                     });
                   },
                 ),
@@ -55,10 +55,10 @@ class _notificationState extends State<notification> {
                 ),
                 subtitle: Text("Play sounds for incoming and outgoing messages."),
                 trailing: Switch(
-                  value: Convotones,
+                  value: convotones,
                   onChanged: (value) {
                     setState(() {
-                      Convotones = value;
+                      convotones = value;
                     });
                   },
                 ),
@@ -111,10 +111,10 @@ class _notificationState extends State<notification> {
                       color: Theme.of(context).textTheme.bodyText1.color),
                 ),
                 trailing: Switch(
-                  value: CallNotif,
+                  value: callNotif,
                   onChanged: (value) {
                     setState(() {
-                      CallNotif = value;
+                      callNotif = value;
                     });
                   },
                 ),
@@ -129,10 +129,10 @@ class _notificationState extends State<notification> {
                       color: Theme.of(context).textTheme.bodyText1.color),
                 ),
                 trailing: Switch(
-                  value: Callvibrate,
+                  value: callvibrate,
                   onChanged: (value) {
                     setState(() {
-                      Callvibrate = value;
+                      callvibrate = value;
                     });
                   },
                 ),
@@ -164,10 +164,10 @@ class _notificationState extends State<notification> {
                       color: Theme.of(context).textTheme.bodyText1.color),
                 ),
                 trailing: Switch(
-                  value: EventNotif,
+                  value: eventNotif,
                   onChanged: (value) {
                     setState(() {
-                      EventNotif = value;
+                      eventNotif = value;
                     });
                   },
                 ),

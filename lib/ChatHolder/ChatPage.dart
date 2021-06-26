@@ -5,26 +5,37 @@ import 'package:flutter/material.dart';
 import '../constant.dart';
 
 
-class Chat_page extends StatefulWidget {
+class Chatpage extends StatefulWidget {
+  final List<Message>chatmodels;
+  final Message sourcechat;
+
+
+  Chatpage({Key key, this.chatmodels,this.sourcechat}) : super(key: key);
+
   @override
-  _Chat_pageState createState() => _Chat_pageState();
+  _ChatpageState createState() => _ChatpageState();
 }
 
-class _Chat_pageState extends State<Chat_page> {
+class _ChatpageState extends State<Chatpage> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-
         decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+          color: Theme.of(context).primaryColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 40.0,
+              spreadRadius: 1, // shadow direction: bottom right
+            )
+          ],
+
         ),
         child: ListView.builder(
-          itemCount: chats.length,
+          itemCount: widget.chatmodels.length,
           itemBuilder: (BuildContext context, int index) {
-            final Message chat = chats[index];
+            final Message chat = widget.chatmodels[index];
             return Column(
               children: [
                 InkWell(
@@ -34,6 +45,7 @@ class _Chat_pageState extends State<Chat_page> {
                     MaterialPageRoute(
                       builder: (_) => ChatScreen(
                         user: chat.sender,
+                        sourcechat: widget.sourcechat,
                       ),
                     ),),
                   child: Padding(
@@ -42,7 +54,7 @@ class _Chat_pageState extends State<Chat_page> {
                       hoverColor: Colors.blue,
                       leading: InkWell(onTap:(){
                         setState(() {
-                          settingModalBottomSheet(context,index);
+                          //settingModalBottomSheet(context,index);
                         });
                       },
                         child: CircleAvatar(
@@ -54,16 +66,16 @@ class _Chat_pageState extends State<Chat_page> {
                         ),
                       ),
                       title: Text(
-                        chats[index].sender.name,
+                        widget.chatmodels[index].sender.name,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: MediaQuery.of(context).textScaleFactor*16,
                           fontWeight: FontWeight.w400,
                           color: Theme.of(context).textTheme.bodyText1.color,
                         ),
                       ),
-                      subtitle: Text(chats[index].text,style: TextStyle(
+                      subtitle: Text(widget.chatmodels[index].text,style: TextStyle(
                         color: Colors.grey.shade700,
-                        fontSize: 14,
+                        fontSize: MediaQuery.of(context).textScaleFactor*16,
                         fontWeight: chat.unread?FontWeight.bold:FontWeight.normal,
                       ),),
                       trailing: Column(
@@ -86,7 +98,7 @@ class _Chat_pageState extends State<Chat_page> {
     );
   }
 }
-settingModalBottomSheet(context,index){
+/*settingModalBottomSheet(context,index){
   showModalBottomSheet(
       context: context,
       builder: (BuildContext bc){
@@ -155,5 +167,5 @@ settingModalBottomSheet(context,index){
         );
       }
   );
-}
+}*/
 

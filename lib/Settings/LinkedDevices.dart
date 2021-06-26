@@ -12,6 +12,7 @@ class _LinkedDevicesState extends State<LinkedDevices> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: CupertinoColors.activeBlue,
+        onPressed: () {  },
         child: Icon(
           Icons.add,
           color: Colors.white,

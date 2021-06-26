@@ -11,17 +11,17 @@ class Privacy extends StatefulWidget {
 }
 
 class _PrivacyState extends State<Privacy> {
-  bool PScreenLock = false;
-  bool PScreensecurity = false;
-  bool PScreenkeyboard = false;
-  bool PComCalls = false;
-  bool PComReceipt = false;
-  bool PComindicator = false;
-  bool PComlinkPreview = false;
-  bool PSealIndi = false;
-  bool PSealAllow = false;
-  bool PPInReg = false;
-  bool PPINred = false;
+  bool pScreenLock = false;
+  bool pScreensecurity = false;
+  bool pScreenkeyboard = false;
+  bool pComCalls = false;
+  bool pComReceipt = false;
+  bool pComindicator = false;
+  bool pComlinkPreview = false;
+  bool pSealIndi = false;
+  bool pSealAllow = false;
+  bool pPInReg = false;
+  bool pPINred = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,10 +67,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PScreensecurity,
+                    value: pScreensecurity,
                     onChanged: (value) {
                       setState(() {
-                        PScreensecurity = value;
+                        pScreensecurity = value;
                       });
                     },
                   ),
@@ -107,10 +107,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PScreenLock,
+                    value: pScreenLock,
                     onChanged: (value) {
                       setState(() {
-                        PScreenLock = value;
+                        pScreenLock = value;
                       });
                     },
                   ),
@@ -131,10 +131,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PScreenkeyboard,
+                    value: pScreenkeyboard,
                     onChanged: (value) {
                       setState(() {
-                        PScreenkeyboard = value;
+                        pScreenkeyboard = value;
                       });
                     },
                   ),
@@ -178,10 +178,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PComCalls,
+                    value: pComCalls,
                     onChanged: (value) {
                       setState(() {
-                        PComCalls = value;
+                        pComCalls = value;
                       });
                     },
                   ),
@@ -202,10 +202,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PComReceipt,
+                    value: pComReceipt,
                     onChanged: (value) {
                       setState(() {
-                        PComReceipt = value;
+                        pComReceipt = value;
                       });
                     },
                   ),
@@ -226,10 +226,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PComindicator,
+                    value: pComindicator,
                     onChanged: (value) {
                       setState(() {
-                        PComindicator = value;
+                        pComindicator = value;
                       });
                     },
                   ),
@@ -250,10 +250,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PComlinkPreview,
+                    value: pComlinkPreview,
                     onChanged: (value) {
                       setState(() {
-                        PComlinkPreview = value;
+                        pComlinkPreview = value;
                       });
                     },
                   ),
@@ -296,10 +296,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PSealIndi,
+                    value: pSealIndi,
                     onChanged: (value) {
                       setState(() {
-                        PSealIndi = value;
+                        pSealIndi = value;
                       });
                     },
                   ),
@@ -320,10 +320,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PSealAllow,
+                    value: pSealAllow,
                     onChanged: (value) {
                       setState(() {
-                        PSealAllow = value;
+                        pSealAllow = value;
                       });
                     },
                   ),
@@ -385,10 +385,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PPINred,
+                    value: pPINred,
                     onChanged: (value) {
                       setState(() {
-                        PPINred = value;
+                        pPINred = value;
                       });
                     },
                   ),
@@ -409,10 +409,10 @@ class _PrivacyState extends State<Privacy> {
                         color: Theme.of(context).textTheme.bodyText1.color),
                   ),
                   trailing: Switch(
-                    value: PPInReg,
+                    value: pPInReg,
                     onChanged: (value) {
                       setState(() {
-                        PPInReg = value;
+                        pPInReg = value;
                       });
                     },
                   ),
@@ -432,7 +432,7 @@ enum SingingCharacter {
   Me,
 }
 
-Future<void> CustomDialog(context, title, tab1, tab2, tab3) {
+Future<void> customDialog(context, title, tab1, tab2, tab3) {
   SingingCharacter _character = SingingCharacter.Everyone;
   return showDialog(
       context: context,

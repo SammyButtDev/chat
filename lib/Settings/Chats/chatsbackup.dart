@@ -34,7 +34,7 @@ class _ChatBackupsState extends State<ChatBackups> {
                 backgroundColor: CupertinoColors.activeBlue
               ),
                 onPressed: () {
-                BackUpCustomDialog(context,);
+                backUpCustomDialog(context,);
                 },
 
                 child: Text(
@@ -59,7 +59,7 @@ class _ChatBackupsState extends State<ChatBackups> {
 }
 
 
-Future<void> BackUpCustomDialog(context, ) {
+Future<void> backUpCustomDialog(context, ) {
 
 
   return showDialog(

@@ -1,4 +1,3 @@
-import 'package:blah/Screens/CallLogScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +19,9 @@ class VoiceCall extends StatelessWidget {
                   Icons.keyboard_backspace_outlined,
                   size: 25,
                   color: Theme.of(context).buttonColor,
-                ),
-                onPressed: () => Navigator.pop(
-                    context, MaterialPageRoute(builder: (_) => CallLog())),
+                ), onPressed: () {  },
+                /*onPressed: () => Navigator.pop(
+                    context, MaterialPageRoute(builder: (_) => CallLog())),*/
               ),
             ),
             Padding(

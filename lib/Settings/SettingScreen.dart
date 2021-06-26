@@ -1,6 +1,7 @@
 import 'package:blah/Components/settings_list_tile.dart';
 import 'package:blah/Providers/ThemeProvider.dart';
 import 'package:blah/Screens/HomeScreen.dart';
+import 'package:blah/Settings/notification/notifcation.dart';
 import 'Chats/Chats.dart';
 import 'Help/Help.dart';
 import 'Privacy/Privacy.dart';
@@ -12,7 +13,6 @@ import 'package:provider/provider.dart';
 import 'Advanced/Advanced.dart';
 import 'LinkedDevices.dart';
 import 'SMSnMMS/SmsandMMs.dart';
-import 'notification/notifcation.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -84,7 +84,7 @@ class _SettingsState extends State<Settings> {
                   ),
                   InkWell(
                     onTap: () => Navigator.push(context,
-                        CupertinoPageRoute(builder: (_) => notification())),
+                        CupertinoPageRoute(builder: (_) => Notifications())),
                     splashColor: Colors.blue,
                     child: ListTile(
                       leading: Icon(
@@ -238,7 +238,7 @@ class _SettingsState extends State<Settings> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "made by Arminodes",
+                    "made by Feddi inc",
                     style: TextStyle(
                         color: Colors.grey.shade400,
                         fontSize: 18,

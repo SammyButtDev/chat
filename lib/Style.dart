@@ -26,8 +26,9 @@ ThemeData lightTheme = ThemeData(
       color: Colors.black,
     ),
   ),
-  buttonColor: Colors.blue.shade900,
+  buttonColor: Colors.black,
   accentColor: Colors.blue,
   dividerColor: Colors.black,
   dialogTheme: DialogTheme(backgroundColor: Colors.white),
 );
+

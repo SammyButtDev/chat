@@ -15,26 +15,25 @@ class _OtherProfileState extends State<OtherProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).primaryColor,
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(backgroundColor: Colors.lime,
-            expandedHeight: 250,
-            floating: true,
-            snap: false,
+          SliverPersistentHeader(
+            delegate: _OtherProfileHeader(),
             pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(widget.user.name),
-
-            ),
+            floating: true,
           ),
           SliverFillRemaining(
-            child:
-            Container(
+            child: Container(
               child: Column(
                 children: [
-                  Divider(thickness: 8,color: Colors.grey.shade300,),
-                  InkWell(onTap: (){},
+                  Divider(
+                    thickness: 8,
+                    color: Colors.grey.shade300,
+                  ),
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -48,8 +47,12 @@ class _OtherProfileState extends State<OtherProfile> {
                       ),
                     ),
                   ),
-                  Divider(thickness: 8,color: Colors.grey.shade300,),
-                  InkWell(onTap: (){},
+                  Divider(
+                    thickness: 8,
+                    color: Colors.grey.shade300,
+                  ),
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -66,12 +69,13 @@ class _OtherProfileState extends State<OtherProfile> {
                     ),
                   ),
                   InkWell(
-                    onTap: (){},
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text("Mute notifications",
                           style: TextStyle(
-                              color: Theme.of(context).textTheme.bodyText1.color)),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color)),
                       trailing: Switch(
                           value: _muteNotif,
                           onChanged: (value) {
@@ -81,7 +85,8 @@ class _OtherProfileState extends State<OtherProfile> {
                           }),
                     ),
                   ),
-                  InkWell(onTap: (){},
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -95,22 +100,31 @@ class _OtherProfileState extends State<OtherProfile> {
                       ),
                     ),
                   ),
-                  Divider(thickness: 8,color: Colors.grey.shade300,),
-                  InkWell(onTap: (){},
+                  Divider(
+                    thickness: 8,
+                    color: Colors.grey.shade300,
+                  ),
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                         title: Text(
                           "Shared media",
                           style: TextStyle(
-                              color: Theme.of(context).textTheme.bodyText1.color),
+                              color:
+                                  Theme.of(context).textTheme.bodyText1.color),
                         ),
                         trailing: Text(
                           "See all",
                           style: TextStyle(color: CupertinoColors.activeBlue),
                         )),
                   ),
-                  Divider(thickness: 8,color: Colors.grey.shade300,),
-                  InkWell(onTap: (){},
+                  Divider(
+                    thickness: 8,
+                    color: Colors.grey.shade300,
+                  ),
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -128,7 +142,8 @@ class _OtherProfileState extends State<OtherProfile> {
                       ),
                     ),
                   ),
-                  InkWell(onTap: (){},
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -138,8 +153,12 @@ class _OtherProfileState extends State<OtherProfile> {
                       ),
                     ),
                   ),
-                  Divider(thickness: 8,color: Colors.grey.shade300,),
-                  InkWell(onTap: (){},
+                  Divider(
+                    thickness: 8,
+                    color: Colors.grey.shade300,
+                  ),
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -149,8 +168,9 @@ class _OtherProfileState extends State<OtherProfile> {
                       ),
                     ),
                   ),
-                  Divider(thickness: 8,color: Colors.grey.shade300,),
-                  InkWell(onTap: (){},
+
+                  InkWell(
+                    onTap: () {},
                     splashColor: CupertinoColors.activeBlue,
                     child: ListTile(
                       title: Text(
@@ -169,7 +189,6 @@ class _OtherProfileState extends State<OtherProfile> {
                           style: TextStyle(color: CupertinoColors.systemRed),
                         ),
                       )),
-
                 ],
               ),
             ),
@@ -178,4 +197,74 @@ class _OtherProfileState extends State<OtherProfile> {
       ),
     );
   }
+}
+
+const _maxHeaderExtent = 280.0;
+const _minHeaderExtent = 80.0;
+const _maxAvatarHeight = 150.0;
+const _minAvatarHeight = 40.0;
+const _maxOtherUserName = 25.0;
+const _minOtherUserName = 16.0;
+const _maxleft=150.0;
+const _minleft =35.0;
+
+
+class _OtherProfileHeader extends SliverPersistentHeaderDelegate  {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    final percent = shrinkOffset / _maxHeaderExtent;
+    final size = MediaQuery.of(context).size.width;
+    // ignore: non_constant_identifier_names
+    final CurrentAvatarSize = (_maxAvatarHeight * (1 - percent))
+        .clamp(_minAvatarHeight, _maxAvatarHeight);
+    // ignore: non_constant_identifier_names
+    final OtherUserName = (_maxOtherUserName *
+        (1 - percent)).clamp(_minOtherUserName, _maxOtherUserName);
+    final left = (_maxleft *
+        (1 - percent)).clamp(_minleft, _maxleft);
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Stack(
+        children: [
+
+          Positioned(
+            left: size / 5,
+            top: 30.0,
+            height: _maxAvatarHeight,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Other User Name",
+                  style: TextStyle(fontSize: OtherUserName),
+                ),
+              ],
+            ),
+          ),
+
+          Positioned(
+            child: ClipOval(
+              child: Image.asset(
+                'images/greg.jpg',
+              ),
+            ),
+            bottom: 20.0,
+            left:left,
+            height: CurrentAvatarSize,
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => _maxHeaderExtent;
+
+  @override
+  double get minExtent => _minHeaderExtent;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      false;
 }

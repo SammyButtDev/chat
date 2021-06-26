@@ -7,7 +7,7 @@ class SMMs extends StatefulWidget {
 }
 
 class _SMMsState extends State<SMMs> {
-  bool Delivery = false;
+  bool delivery = false;
   bool mode = false;
   @override
   Widget build(BuildContext context) {
@@ -52,10 +52,10 @@ class _SMMsState extends State<SMMs> {
                       color: Theme.of(context).textTheme.bodyText1.color),
                 ),
                 trailing: Switch(
-                  value: Delivery,
+                  value: delivery,
                   onChanged: (value) {
                     setState(() {
-                      Delivery = value;
+                      delivery = value;
                     });
                   },
                 ),

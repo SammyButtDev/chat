@@ -51,7 +51,7 @@ class _PlayButtonState extends State<PlayButton> with TickerProviderStateMixin {
     super.initState();
   }
 
-  void _onToggle() {
+ /* void _onToggle() {
     setState(() => isPlaying = !isPlaying);
 
     if (_scaleController.isCompleted) {
@@ -61,13 +61,25 @@ class _PlayButtonState extends State<PlayButton> with TickerProviderStateMixin {
     }
 
     widget.onPressed();
-  }
+  }*/
 
   Widget _buildIcon(bool isPlaying) {
     return SizedBox.expand(
       key: ValueKey<bool>(isPlaying),
-      child: GestureDetector(onLongPress: _onToggle,
+      child: GestureDetector(onLongPressStart:(d) {
+        setState(() {
+          isPlaying = true;
+        });
+        _scaleController.forward();
+
+      },onLongPressEnd: (d){
+        setState(() {
+          isPlaying= false;
+        });
+        _scaleController.reverse();
+      },
         child: IconButton(
+          onPressed: (){},
           icon: isPlaying ? widget.pauseIcon : widget.playIcon,
         ),
       ),
@@ -124,12 +136,7 @@ class Blob extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(240),
-              topRight: Radius.circular(240),
-              bottomLeft: Radius.circular(240),
-              bottomRight: Radius.circular(240),
-            ),
+            shape: BoxShape.circle,
           ),
         ),
       ),

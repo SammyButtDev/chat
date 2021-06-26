@@ -40,7 +40,7 @@ class _VoiceGCallState extends State<VoiceGCall> {
       extendBodyBehindAppBar: true,
       backgroundColor: Theme.of(context).primaryColor,
       body: GridView.builder(
-          itemCount: GroupCall.length,
+          itemCount: groupCall.length,
           padding: EdgeInsets.zero,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 0.53,

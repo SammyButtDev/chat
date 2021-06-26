@@ -137,18 +137,13 @@ settingModalBottomSheet(context,){
               ),
               new ListTile(
                   leading: new Icon(Icons.camera_alt_outlined),
-                  title: new Text('Take photo'),
+                  title: new Text('Upload Image'),
                   onTap: () => {}
               ),
               new ListTile(
                   leading: new Icon(CupertinoIcons.photo),
-                  title: new Text('Block'),
+                  title: new Text('Remove Image'),
                   onTap: () => {}
-              ),
-              new ListTile(
-                leading: new Icon(CupertinoIcons.delete),
-                title: new Text('View safety number'),
-                onTap: () => {},
               ),
             ],
           ),

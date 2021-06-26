@@ -1,14 +1,18 @@
 import 'package:blah/Providers/ThemeProvider.dart';
-import 'package:blah/Screens/CallLogScreen.dart';
-import 'package:blah/Screens/HomeScreen.dart';
-import 'package:blah/Screens/VoiceGroupCallScreen.dart';
+import 'package:blah/Screens/LoginScreen.dart';
 import 'package:blah/Style.dart';
+import 'package:camera/camera.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+import 'camerawidget/camerascreen.dart';
 
 
 
-void main() {
+Future <void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 
@@ -28,7 +32,14 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: value.isLight ? darkTheme : lightTheme,
-            home:HomeScreen(),
+
+            darkTheme: darkTheme,
+            onGenerateRoute: (RouteSettings settings){
+              switch (settings.name){
+                case'/':return MaterialWithModalsPageRoute(builder: (_)=>Login(),settings: settings);
+              }
+            },
+
           );
         },
       ),
